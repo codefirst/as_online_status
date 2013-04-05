@@ -1,4 +1,4 @@
-%div.notification_section{}
+%div.notification_section{:id => "online_status_section"}
  %h3 Online Status
  = render :partial => "card", :locals => { :user => @room.user, :is_public => @room.is_public }
  - @room.members.each do |user|

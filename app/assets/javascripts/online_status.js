@@ -9,7 +9,7 @@
     }
     location.origin = location.origin || origin;
 
-    var heartbeat_rate = 10 * 1000;
+    var heartbeat_rate = 30 * 1000;
     var update_url = location.origin + "/api/v1/online_status/update";
     AsakusaSatellite.pusher.connection.bind('connected', ping);
     setInterval(ping, heartbeat_rate);
@@ -22,7 +22,7 @@
       var offlineUsers = $(".online-user").filter(function(idx,user){
         return user.style.opacity != "1";
       });
-      $(".notification_section").append($.merge(onlineUsers, offlineUsers));
+      $("#online_status_section").append($.merge(onlineUsers, offlineUsers));
     }
     function checkOnlineUsers(){
         var list_url = location.origin + "/api/v1/online_status/list";
@@ -45,5 +45,5 @@
     }
 
     AsakusaSatellite.pusher.connection.bind('connected', checkOnlineUsers);
-    setInterval(checkOnlineUsers, 10 * 1000);
+    setInterval(checkOnlineUsers, 30 * 1000);
 })();
