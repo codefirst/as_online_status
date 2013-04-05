@@ -16,9 +16,13 @@
 })();
 (function(){
     function sortUsers(){
-      $(".notification_section").
-         append($(".online-user").
-         sort(function(u1,u2){return u1.style.opacity < u2.style.opacity;}));
+      var onlineUsers = $(".online-user").filter(function(idx,user){
+        return user.style.opacity == "1";
+      });
+      var offlineUsers = $(".online-user").filter(function(idx,user){
+        return user.style.opacity != "1";
+      });
+      $(".notification_section").append($.merge(onlineUsers, offlineUsers));
     }
     function checkOnlineUsers(){
         var list_url = location.origin + "/api/v1/online_status/list";
