@@ -1,0 +1,12 @@
+- if is_public
+ %div.online-user{:id => "online_status_user_dummy", :style => "display: none;"}
+  %img{:src => user.profile_image_url}
+  %div.info
+   %span #{user.screen_name}
+   %span #{user.name}
+- else
+ %div.online-user{:id => "online_status_user_#{user._id}"}
+  %img{:src => user.profile_image_url}
+  %div.info
+   %span #{user.screen_name}
+   %span #{user.name}

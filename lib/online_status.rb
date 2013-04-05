@@ -1,4 +1,5 @@
 class OnlineStatusListener < AsakusaSatellite::Hook::Listener
+  render_on :notification_area_section, :partial => "online_status_section"
   render_on :account_setting_item, :partial => "online_status_setting"
 
   def global_header(context)

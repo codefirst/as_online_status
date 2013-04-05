@@ -1,0 +1,5 @@
+%div.notification_section{}
+ %h3 Online Status
+ = render :partial => "card", :locals => { :user => @room.user, :is_public => @room.is_public }
+ - @room.members.each do |user|
+  = render :partial => "card", :locals => { :user => user, :is_public => @room.is_public }
